@@ -1,6 +1,6 @@
 ---
 title: "Starbucks Locations"
-author: "Abby Lewis & Zining Tenny Liu"
+author: "A. Lewis & Z. Liu"
 date: "4/23/2019"
 output: html_document
 ---
@@ -24,7 +24,7 @@ library(classInt)
 ```
 
 
-In the first section, I load the data and create four maps. The first two are maps of starbucks locations in california and the world respectively. The last two are the same data, but with a background map that shows state/country boundaries.
+In the first section, we load the data and create four maps. The first two are maps of starbucks locations in california and the world respectively. The last two are the same data, but with a background map that shows state/country boundaries.
 ```{r}
 
 ## Load Data
@@ -73,7 +73,7 @@ q
 ```
 
 
-In this section, I take in data from the census api and make three figures that overlay a given aspect of census data with starbucks locations. My first graph is a graph of median county-level income in the US, then I subset this to California, and finally I do the number of white population in counties in California. If we want to incorporate the final graph or any other metrics related to race, we should probably divide by the total population in the census tract. I haven't done that so far. 
+In this section, we take in data from the census api and make three figures that overlay a given aspect of census data with starbucks locations. My first graph is a graph of median county-level income in the US, then we subset this to California, and finally we do the number of white population in counties in California. If we want to incorporate the final graph or any other metrics related to race, we should probably divide by the total population in the census tract. 
 ```{r}
 #First, set up the census api
 library(tidycensus) #Load tidycensus to be able to draw in census data
@@ -248,7 +248,7 @@ summary(car.out)
 
 ```
 
-In this section, I load census data for Wisconsin and use the previous linear model to predict county-wide Starbucks abundance.
+In this section, we load census data for Wisconsin and use the previous linear model to predict county-wide Starbucks abundance.
 ```{r}
 #Separate data for Wisconsin
 wi <- sb[sb$State.Province == "WI",]
