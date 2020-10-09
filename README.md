@@ -3,7 +3,8 @@
 Code & visuals for Starbucks Locations & Gentrification project by me and 1 other collaborator; academic paper available upon request  
 
 
-*Methods include:*
+*Project involves:*
+* Data Collection via API
 * Linear Regression  
 * Geographically Weighted Regression (GWR)  
 * Simultaneous Autoregression (SAR)
