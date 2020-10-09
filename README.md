@@ -16,10 +16,7 @@ Code & visuals for Starbucks Locations & Gentrification project by me and 1 othe
 Starbucks locations worldwide:
 ![Figure of starbucks location worldwide](https://github.com/zlaa2016/Geo-weighted-Regression_Gentrification/blob/master/figures/locations_world.png)  
 Starbucks locaions against median household income by county in California:
-![Figure of starbucks location cali](https://github.com/zlaa2016/Geo-weighted-Regression_Gentrification/blob/master/figures/locations_cali.png)  
-Residual plot for final model candidaete 1 - Linear Regression model: 
-![Figure of residual lm](https://github.com/zlaa2016/Geo-weighted-Regression_Gentrification/blob/master/figures/residuals_linearmodel.png)    
-Residual plot for final model candidaete 2 - Geo-weighted Regression model: 
-![Figure of residual lm](https://github.com/zlaa2016/Geo-weighted-Regression_Gentrification/blob/master/figures/residuals_weightedmodel.png)   
-Actual number of Starbucks vs. Predicted: 
+![Figure of starbucks location cali](https://github.com/zlaa2016/Geo-weighted-Regression_Gentrification/blob/master/figures/locations_cali.png)   
+Starbucks number Actual(left) vs. Predicted(right): 
+![Figure of results](https://github.com/zlaa2016/Geo-weighted-Regression_Gentrification/blob/master/figures/prediction.png) 
 
