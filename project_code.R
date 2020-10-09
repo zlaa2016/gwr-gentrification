@@ -1,11 +1,11 @@
----
-title: "Starbucks Locations"
-author: "A. Lewis & Z. Liu"
-date: "4/23/2019"
-output: html_document
----
-
-```{r setup, include=FALSE}
+#' ---
+#' title: "Starbucks Locations"
+#' author: "A. Lewis & Z. Liu"
+#' date: "4/23/2019"
+#' output: html_document
+#' ---
+#' 
+## ----setup, include=FALSE------------------------------------------------
 knitr::opts_chunk$set(echo = TRUE)
 library(gstat)
 library(sp)
@@ -21,11 +21,11 @@ library(spgwr)
 library(GWmodel)  
 library(RColorBrewer) 
 library(classInt) 
-```
 
-
-In the first section, we load the data and create four maps. The first two are maps of starbucks locations in california and the world respectively. The last two are the same data, but with a background map that shows state/country boundaries.
-```{r}
+#' 
+#' 
+#' In the first section, we load the data and create four maps. The first two are maps of starbucks locations in california and the world respectively. The last two are the same data, but with a background map that shows state/country boundaries.
+## ------------------------------------------------------------------------
 
 ## Load Data
 sb <- read.csv("/Users/tennyliu/Desktop/MATH161/Z Project/directory.csv") ### CHANGE THIS AS NECESSARY
@@ -70,11 +70,11 @@ q <- q + geom_map(data=caliMap, map=caliMap,
          fill="white", colour="#7f7f7f", size=0.5)
 q <- q + geom_point(data=cali.df, aes(x = Longitude, y = Latitude))
 q
-```
 
-
-In this section, we take in data from the census api and make three figures that overlay a given aspect of census data with starbucks locations. My first graph is a graph of median county-level income in the US, then we subset this to California, and finally we do the number of white population in counties in California. If we want to incorporate the final graph or any other metrics related to race, we should probably divide by the total population in the census tract. 
-```{r}
+#' 
+#' 
+#' In this section, we take in data from the census api and make three figures that overlay a given aspect of census data with starbucks locations. My first graph is a graph of median county-level income in the US, then we subset this to California, and finally we do the number of white population in counties in California. If we want to incorporate the final graph or any other metrics related to race, we should probably divide by the total population in the census tract. 
+## ------------------------------------------------------------------------
 #First, set up the census api
 library(tidycensus) #Load tidycensus to be able to draw in census data
 Sys.setenv(CENSUS_KEY="a83c5996031ce19af8a1cee6676bfd8af7f251f9") # This might be redundant with the line below
@@ -166,11 +166,11 @@ spplot(cali.sp, zcol = "Median_House_Value",  sp.layout = list(cali, col = "gree
 # To find the variable code for other variables that you're interested in (e.g."B19013_001" for median income) you can use this website:
     ## https://api.census.gov/data/2015/acs/acs5/variables.html
 
-```
 
-
-In this section, I compute the density of starbucks within each census tract. We can then use this as a variable for other analyses. All I do is plot it right now.
-```{r}
+#' 
+#' 
+#' In this section, I compute the density of starbucks within each census tract. We can then use this as a variable for other analyses. All I do is plot it right now.
+## ------------------------------------------------------------------------
 library(GISTools)
 n.sb.cali = poly.counts(cali,cali.sp) #Counts the number of starbucks locations within each county of California
 choropleth(cali.sp,n.sb.cali/poly.areas(cali.sp)) #Maps the number of starbucks/area of the county
@@ -246,10 +246,10 @@ car.out<- spautolm(logged_n.sb ~ cali.sp$Median_Income + cali.sp$White_Populatio
 #car.out<- spautolm(logged_n.sb ~ cali.sp$Median_Income + cali.sp$white.percentage+, data=cali.sp, family="CAR", listw=W.nb, zero.policy = TRUE)
 summary(car.out)
 
-```
 
-In this section, we load census data for Wisconsin and use the previous linear model to predict county-wide Starbucks abundance.
-```{r}
+#' 
+#' In this section, we load census data for Wisconsin and use the previous linear model to predict county-wide Starbucks abundance.
+## ------------------------------------------------------------------------
 #Separate data for Wisconsin
 wi <- sb[sb$State.Province == "WI",]
 
@@ -334,4 +334,4 @@ spplot(wi.sp, zcol="Dif")
 wi.neighbors <-poly2nb(wi.sp,queen=TRUE)
 W.nb.wi<- nb2listw(wi.neighbors, style="W", zero.policy = TRUE)
 moran.test(wi.sp@data$Dif,W.nb.wi, zero.policy = TRUE)
-```
+
